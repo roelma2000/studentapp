@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h1>Edit Student Information</h1>
+    <hr>
     <form th:action="@{/update/{id}(id=${student.id})}" th:object="${student}" method="post">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -30,8 +31,11 @@
             <input type="number" class="form-control" id="age" th:field="*{age}">
             <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></div>
         </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <hr>
+    <a  class="link-primary" th:href="@{/list}">Back to List</a>
 </div>
 </body>
 </html>
