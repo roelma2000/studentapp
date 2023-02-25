@@ -9,29 +9,33 @@
 <body>
 <div class="container">
     <h1>Add Student</h1>
+    <hr>
     <form th:action="@{/add}" th:object="${student}" method="post">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" th:field="*{name}">
+            <input type="text" class="form-control" id="name" placeholder="John Doe" th:field="*{name}">
             <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" th:field="*{email}">
+            <input type="text" class="form-control" id="email"  placeholder="john.doe@youremail.com" th:field="*{email}">
             <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label for="course" class="form-label">Course</label>
-            <input type="text" class="form-control" id="course" th:field="*{course}">
+            <input type="text" class="form-control" id="course"  placeholder="Computer Science" th:field="*{course}">
             <div th:if="${#fields.hasErrors('course')}" th:errors="*{course}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="age" th:field="*{age}">
+            <input type="number" class="form-control" id="age"  th:field="*{age}">
             <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></div>
         </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <hr>
+    <a  class="link-primary" th:href="@{/list}">Back to List</a>
 </div>
 </body>
 </html>
