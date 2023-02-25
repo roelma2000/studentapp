@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label for="course" class="form-label">Course</label>
-            <input type="text" class="form-control" id="course" th:field="*{course}">
+            <input type="text" class="form-control" id="course"  th:field="*{course}">
             <div th:if="${#fields.hasErrors('course')}" th:errors="*{course}" class="text-danger"></div>
         </div>
         <div class="mb-3">
