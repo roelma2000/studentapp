@@ -14,11 +14,18 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
+
+    /**
+     * Code to handle List View operation
+     */
     @RequestMapping({"/","/list","/showStudents"})
     public String getIndexPage(Model model){
         model.addAttribute("students", studentRepository.findAll());
         return "list-students";
     }
+    /**
+     * Code to handle Add operation
+     */
     @GetMapping("/add")
     public String getAddstudentForm(Student student){
         return "add-student";
@@ -46,6 +53,10 @@ public class StudentController {
         model.addAttribute("students", studentRepository.findAll());
         return "list-students";
     }
+
+    /**
+     * Code to handle delete operation
+     */
 
     @GetMapping("/delete/{id}")
     public String showDeleteStudentConfirmation(@PathVariable("id") int id, Model model) {
@@ -115,7 +126,9 @@ public class StudentController {
         return "list-students";
     }
 
-    // method to handle all exceptions and call the error.html
+    /**
+     * method to handle all exceptions and call the error.html
+     */
     @ExceptionHandler(Throwable.class)
     public String handleException(Model model, Exception ex) {
         model.addAttribute("errorMessage", ex.getMessage());
